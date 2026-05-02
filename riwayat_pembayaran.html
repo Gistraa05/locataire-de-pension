@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riwayat Pembayaran - Kost Sakura</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { 
+            theme: { 
+                extend: { 
+                    colors: { 
+                        aksen: '#E91E63',
+                        softPink: '#FCE4EC',
+                        pinkUtama: '#F8BBD0',
+                        darkBerry: '#880E4F',
+                        pearl: '#FDFCFD'
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.6s ease-out forwards',
+                        'blob': 'blob 7s infinite',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        }
+                    }
+                } 
+            } 
+        }
+    </script>
+    <script src="script.js" defer></script>
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 8px 32px 0 rgba(233, 30, 99, 0.05);
+        }
+        
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #F8BBD0;
+            border-radius: 10px;
+        }
+
+        .bg-mesh {
+            background-color: #FDFCFD;
+            background-image: 
+                radial-gradient(at 0% 0%, hsla(340, 100%, 93%, 1) 0, transparent 50%), 
+                radial-gradient(at 50% 0%, hsla(340, 100%, 96%, 1) 0, transparent 50%), 
+                radial-gradient(at 100% 0%, hsla(340, 100%, 93%, 1) 0, transparent 50%);
+        }
+    </style>
+</head>
+<body class="bg-mesh min-h-screen font-sans text-gray-800 selection:bg-aksen selection:text-white overflow-x-hidden">
+
+    <!-- Decorative Blobs -->
+    <div class="fixed top-0 -left-4 w-72 h-72 bg-pinkUtama rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
+    <div class="fixed top-0 -right-4 w-72 h-72 bg-softPink rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob" style="animation-delay: 2s;"></div>
+    <div class="fixed -bottom-8 left-20 w-72 h-72 bg-aksen/10 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob" style="animation-delay: 4s;"></div>
+
+    <div class="relative z-10 max-w-6xl mx-auto p-6 md:p-12 space-y-10">
+        
+        <!-- Header -->
+        <header class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 animate-fade-in-up">
+            <div class="space-y-2">
+                <a href="tenant.html" class="inline-flex items-center gap-2 text-[10px] font-black text-aksen tracking-widest hover:gap-4 transition-all group">
+                    <i class='bx bx-left-arrow-alt text-lg'></i> KEMBALI KE DASHBOARD
+                </a>
+                <h1 class="text-5xl font-black tracking-tighter text-gray-900 leading-none">Riwayat <span class="text-aksen italic">Transaksi.</span></h1>
+                <p class="text-sm font-medium text-gray-400">Kelola dan pantau semua pembayaran kost Anda secara transparan.</p>
+            </div>
+            <div class="flex items-center gap-4 bg-white/40 p-3 rounded-3xl border border-white/60 shadow-sm">
+                <div class="w-12 h-12 bg-aksen rounded-2xl flex items-center justify-center text-white text-2xl shadow-lg shadow-aksen/20">
+                    <i class='bx bx-history'></i>
+                </div>
+                <div class="pr-4">
+                    <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Status Akun</p>
+                    <p class="text-sm font-black text-gray-800">PENYEWA AKTIF</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Stats Overview -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 animate-fade-in-up" style="animation-delay: 0.1s;">
+            <div class="glass-card p-8 rounded-[2.5rem] relative overflow-hidden group">
+                <div class="relative z-10">
+                    <p class="text-gray-400 text-[10px] font-black uppercase tracking-widest mb-1">Total Terbayar</p>
+                    <h3 class="text-3xl font-black text-gray-800">Rp 12.000.000</h3>
+                </div>
+                <i class='bx bxs-check-circle absolute right-[-10px] bottom-[-10px] text-7xl text-green-500 opacity-5 group-hover:scale-110 transition-transform'></i>
+            </div>
+            <div class="glass-card p-8 rounded-[2.5rem] relative overflow-hidden group">
+                <div class="relative z-10">
+                    <p class="text-gray-400 text-[10px] font-black uppercase tracking-widest mb-1">Bulan Terlewati</p>
+                    <h3 class="text-3xl font-black text-gray-800">10 Bulan</h3>
+                </div>
+                <i class='bx bxs-calendar absolute right-[-10px] bottom-[-10px] text-7xl text-aksen opacity-5 group-hover:scale-110 transition-transform'></i>
+            </div>
+            <div class="glass-card p-8 rounded-[2.5rem] relative overflow-hidden group border-l-4 border-l-aksen">
+                <div class="relative z-10">
+                    <p class="text-gray-400 text-[10px] font-black uppercase tracking-widest mb-1">Metode Utama</p>
+                    <h3 class="text-3xl font-black text-gray-800">Transfer Bank</h3>
+                </div>
+                <i class='bx bxs-credit-card absolute right-[-10px] bottom-[-10px] text-7xl text-blue-500 opacity-5 group-hover:scale-110 transition-transform'></i>
+            </div>
+        </div>
+
+        <!-- Table Card -->
+        <div class="glass-card rounded-[3rem] overflow-hidden animate-fade-in-up" style="animation-delay: 0.2s;">
+            <div class="p-8 border-b border-pinkUtama/10 flex justify-between items-center bg-white/30">
+                <h4 class="text-lg font-black text-gray-800 flex items-center gap-3">
+                    <span class="w-2 h-8 bg-aksen rounded-full"></span>
+                    Detail Pembayaran
+                </h4>
+                <button onclick="tampilPopUpUnduh()" class="text-[10px] font-black text-aksen bg-softPink px-6 py-3 rounded-2xl hover:bg-aksen hover:text-white transition-all shadow-sm uppercase tracking-widest">Unduh Semua (PDF)</button>
+            </div>
+            
+            <div class="overflow-x-auto custom-scrollbar">
+                <table class="w-full text-left">
+                    <thead>
+                        <tr class="text-[10px] font-black text-gray-400 uppercase tracking-widest">
+                            <th class="px-10 py-6">Informasi Bulan</th>
+                            <th class="px-8 py-6">Tanggal Bayar</th>
+                            <th class="px-8 py-6">Nominal</th>
+                            <th class="px-8 py-6 text-center">Status</th>
+                            <th class="px-10 py-6 text-right">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-pinkUtama/5">
+                        <!-- 2026 -->
+                        <tr class="hover:bg-white/60 transition-all group">
+                            <td class="px-10 py-6">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-12 h-12 bg-softPink text-aksen rounded-2xl flex items-center justify-center font-black text-xs shadow-inner">APR</div>
+                                    <div>
+                                        <p class="font-black text-gray-800">April 2026</p>
+                                        <p class="text-[10px] text-gray-400 font-bold uppercase">Tagihan Rutin</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-8 py-6"><div class="flex flex-col"><span class="text-sm font-bold text-gray-700">10 April 2026</span><span class="text-[9px] text-gray-400 font-black uppercase">Jam 09:45 WIB</span></div></td>
+                            <td class="px-8 py-6"><p class="text-lg font-black text-gray-800">Rp 1.200.000</p></td>
+                            <td class="px-8 py-6 text-center"><div class="inline-flex items-center gap-2 px-4 py-2 bg-green-50 text-green-600 rounded-2xl"><div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div><span class="text-[10px] font-black uppercase tracking-tighter">Lunas</span></div></td>
+                            <td class="px-10 py-6 text-right"><button class="w-10 h-10 bg-white border border-pinkUtama/20 text-gray-400 rounded-xl hover:bg-aksen hover:text-white transition-all"><i class='bx bx-download text-xl'></i></button></td>
+                        </tr>
+                        <tr class="hover:bg-white/60 transition-all group">
+                            <td class="px-10 py-6"><div class="flex items-center gap-4"><div class="w-12 h-12 bg-gray-100 text-gray-400 rounded-2xl flex items-center justify-center font-black text-xs">MAR</div><div><p class="font-black text-gray-800">Maret 2026</p><p class="text-[10px] text-gray-400 font-bold uppercase">Tagihan Rutin</p></div></div></td>
+                            <td class="px-8 py-6"><div class="flex flex-col"><span class="text-sm font-bold text-gray-700">05 Maret 2026</span><span class="text-[9px] text-gray-400 font-black uppercase">Jam 14:20 WIB</span></div></td>
+                            <td class="px-8 py-6"><p class="text-lg font-black text-gray-800">Rp 1.200.000</p></td>
+                            <td class="px-8 py-6 text-center"><div class="inline-flex items-center gap-2 px-4 py-2 bg-green-50 text-green-600 rounded-2xl"><div class="w-2 h-2 bg-green-500 rounded-full"></div><span class="text-[10px] font-black uppercase tracking-tighter">Lunas</span></div></td>
+                            <td class="px-10 py-6 text-right"><button class="w-10 h-10 bg-white border border-pinkUtama/20 text-gray-400 rounded-xl hover:bg-aksen hover:text-white transition-all"><i class='bx bx-download text-xl'></i></button></td>
+                        </tr>
+                        <tr class="hover:bg-white/60 transition-all group">
+                            <td class="px-10 py-6"><div class="flex items-center gap-4"><div class="w-12 h-12 bg-gray-100 text-gray-400 rounded-2xl flex items-center justify-center font-black text-xs">FEB</div><div><p class="font-black text-gray-800">Februari 2026</p><p class="text-[10px] text-gray-400 font-bold uppercase">Tagihan Rutin</p></div></div></td>
+                            <td class="px-8 py-6"><div class="flex flex-col"><span class="text-sm font-bold text-gray-700">02 Februari 2026</span><span class="text-[9px] text-gray-400 font-black uppercase">Jam 10:15 WIB</span></div></td>
+                            <td class="px-8 py-6"><p class="text-lg font-black text-gray-800">Rp 1.200.000</p></td>
+                            <td class="px-8 py-6 text-center"><div class="inline-flex items-center gap-2 px-4 py-2 bg-green-50 text-green-600 rounded-2xl"><div class="w-2 h-2 bg-green-500 rounded-full"></div><span class="text-[10px] font-black uppercase tracking-tighter">Lunas</span></div></td>
+                            <td class="px-10 py-6 text-right"><button class="w-10 h-10 bg-white border border-pinkUtama/20 text-gray-400 rounded-xl hover:bg-aksen hover:text-white transition-all"><i class='bx bx-download text-xl'></i></button></td>
+                        </tr>
+                        <tr class="hover:bg-white/60 transition-all group">
+                            <td class="px-10 py-6"><div class="flex items-center gap-4"><div class="w-12 h-12 bg-gray-100 text-gray-400 rounded-2xl flex items-center justify-center font-black text-xs">JAN</div><div><p class="font-black text-gray-800">Januari 2026</p><p class="text-[10px] text-gray-400 font-bold uppercase">Tagihan Rutin</p></div></div></td>
+                            <td class="px-8 py-6"><div class="flex flex-col"><span class="text-sm font-bold text-gray-700">12 Januari 2026</span><span class="text-[9px] text-gray-400 font-black uppercase">Jam 11:30 WIB</span></div></td>
+                            <td class="px-8 py-6"><p class="text-lg font-black text-gray-800">Rp 1.200.000</p></td>
+                            <td class="px-8 py-6 text-center"><div class="inline-flex items-center gap-2 px-4 py-2 bg-green-50 text-green-600 rounded-2xl"><div class="w-2 h-2 bg-green-500 rounded-full"></div><span class="text-[10px] font-black uppercase tracking-tighter">Lunas</span></div></td>
+                            <td class="px-10 py-6 text-right"><button class="w-10 h-10 bg-white border border-pinkUtama/20 text-gray-400 rounded-xl hover:bg-aksen hover:text-white transition-all"><i class='bx bx-download text-xl'></i></button></td>
+                        </tr>
+
+                        <!-- 2025 -->
+                        <tr class="hover:bg-white/60 transition-all group">
+                            <td class="px-10 py-6"><div class="flex items-center gap-4"><div class="w-12 h-12 bg-gray-100 text-gray-400 rounded-2xl flex items-center justify-center font-black text-xs">DES</div><div><p class="font-black text-gray-800">Desember 2025</p><p class="text-[10px] text-gray-400 font-bold uppercase">Tahun Lalu</p></div></div></td>
+                            <td class="px-8 py-6"><div class="flex flex-col"><span class="text-sm font-bold text-gray-700">10 Desember 2025</span></div></td>
+                            <td class="px-8 py-6"><p class="text-lg font-black text-gray-800">Rp 1.200.000</p></td>
+                            <td class="px-8 py-6 text-center"><div class="inline-flex items-center gap-2 px-4 py-2 bg-green-50 text-green-600 rounded-2xl"><div class="w-2 h-2 bg-green-500 rounded-full"></div><span class="text-[10px] font-black uppercase tracking-tighter">Lunas</span></div></td>
+                            <td class="px-10 py-6 text-right"><button class="w-10 h-10 bg-white border border-pinkUtama/20 text-gray-400 rounded-xl hover:bg-aksen hover:text-white transition-all"><i class='bx bx-download text-xl'></i></button></td>
+                        </tr>
+                        <tr class="hover:bg-white/60 transition-all group">
+                            <td class="px-10 py-6"><div class="flex items-center gap-4"><div class="w-12 h-12 bg-gray-100 text-gray-400 rounded-2xl flex items-center justify-center font-black text-xs">NOV</div><div><p class="font-black text-gray-800">November 2025</p><p class="text-[10px] text-gray-400 font-bold uppercase">Tahun Lalu</p></div></div></td>
+                            <td class="px-8 py-6"><div class="flex flex-col"><span class="text-sm font-bold text-gray-700">08 November 2025</span></div></td>
+                            <td class="px-8 py-6"><p class="text-lg font-black text-gray-800">Rp 1.200.000</p></td>
+                            <td class="px-8 py-6 text-center"><div class="inline-flex items-center gap-2 px-4 py-2 bg-green-50 text-green-600 rounded-2xl"><div class="w-2 h-2 bg-green-500 rounded-full"></div><span class="text-[10px] font-black uppercase tracking-tighter">Lunas</span></div></td>
+                            <td class="px-10 py-6 text-right"><button class="w-10 h-10 bg-white border border-pinkUtama/20 text-gray-400 rounded-xl hover:bg-aksen hover:text-white transition-all"><i class='bx bx-download text-xl'></i></button></td>
+                        </tr>
+                        <tr class="hover:bg-white/60 transition-all group">
+                            <td class="px-10 py-6"><div class="flex items-center gap-4"><div class="w-12 h-12 bg-gray-100 text-gray-400 rounded-2xl flex items-center justify-center font-black text-xs">OKT</div><div><p class="font-black text-gray-800">Oktober 2025</p><p class="text-[10px] text-gray-400 font-bold uppercase">Tahun Lalu</p></div></div></td>
+                            <td class="px-8 py-6"><div class="flex flex-col"><span class="text-sm font-bold text-gray-700">12 Oktober 2025</span></div></td>
+                            <td class="px-8 py-6"><p class="text-lg font-black text-gray-800">Rp 1.200.000</p></td>
+                            <td class="px-8 py-6 text-center"><div class="inline-flex items-center gap-2 px-4 py-2 bg-green-50 text-green-600 rounded-2xl"><div class="w-2 h-2 bg-green-500 rounded-full"></div><span class="text-[10px] font-black uppercase tracking-tighter">Lunas</span></div></td>
+                            <td class="px-10 py-6 text-right"><button class="w-10 h-10 bg-white border border-pinkUtama/20 text-gray-400 rounded-xl hover:bg-aksen hover:text-white transition-all"><i class='bx bx-download text-xl'></i></button></td>
+                        </tr>
+                        <tr class="hover:bg-white/60 transition-all group">
+                            <td class="px-10 py-6"><div class="flex items-center gap-4"><div class="w-12 h-12 bg-gray-100 text-gray-400 rounded-2xl flex items-center justify-center font-black text-xs">SEP</div><div><p class="font-black text-gray-800">September 2025</p><p class="text-[10px] text-gray-400 font-bold uppercase">Tahun Lalu</p></div></div></td>
+                            <td class="px-8 py-6"><div class="flex flex-col"><span class="text-sm font-bold text-gray-700">05 September 2025</span></div></td>
+                            <td class="px-8 py-6"><p class="text-lg font-black text-gray-800">Rp 1.200.000</p></td>
+                            <td class="px-8 py-6 text-center"><div class="inline-flex items-center gap-2 px-4 py-2 bg-green-50 text-green-600 rounded-2xl"><div class="w-2 h-2 bg-green-500 rounded-full"></div><span class="text-[10px] font-black uppercase tracking-tighter">Lunas</span></div></td>
+                            <td class="px-10 py-6 text-right"><button class="w-10 h-10 bg-white border border-pinkUtama/20 text-gray-400 rounded-xl hover:bg-aksen hover:text-white transition-all"><i class='bx bx-download text-xl'></i></button></td>
+                        </tr>
+                        <tr class="hover:bg-white/60 transition-all group">
+                            <td class="px-10 py-6"><div class="flex items-center gap-4"><div class="w-12 h-12 bg-gray-100 text-gray-400 rounded-2xl flex items-center justify-center font-black text-xs">AGU</div><div><p class="font-black text-gray-800">Agustus 2025</p><p class="text-[10px] text-gray-400 font-bold uppercase">Tahun Lalu</p></div></div></td>
+                            <td class="px-8 py-6"><div class="flex flex-col"><span class="text-sm font-bold text-gray-700">15 Agustus 2025</span></div></td>
+                            <td class="px-8 py-6"><p class="text-lg font-black text-gray-800">Rp 1.200.000</p></td>
+                            <td class="px-8 py-6 text-center"><div class="inline-flex items-center gap-2 px-4 py-2 bg-green-50 text-green-600 rounded-2xl"><div class="w-2 h-2 bg-green-500 rounded-full"></div><span class="text-[10px] font-black uppercase tracking-tighter">Lunas</span></div></td>
+                            <td class="px-10 py-6 text-right"><button class="w-10 h-10 bg-white border border-pinkUtama/20 text-gray-400 rounded-xl hover:bg-aksen hover:text-white transition-all"><i class='bx bx-download text-xl'></i></button></td>
+                        </tr>
+                        <tr class="hover:bg-white/60 transition-all group">
+                            <td class="px-10 py-6"><div class="flex items-center gap-4"><div class="w-12 h-12 bg-gray-100 text-gray-400 rounded-2xl flex items-center justify-center font-black text-xs">JUL</div><div><p class="font-black text-gray-800">Juli 2025</p><p class="text-[10px] text-gray-400 font-bold uppercase">Tahun Lalu</p></div></div></td>
+                            <td class="px-8 py-6"><div class="flex flex-col"><span class="text-sm font-bold text-gray-700">10 Juli 2025</span></div></td>
+                            <td class="px-8 py-6"><p class="text-lg font-black text-gray-800">Rp 1.200.000</p></td>
+                            <td class="px-8 py-6 text-center"><div class="inline-flex items-center gap-2 px-4 py-2 bg-green-50 text-green-600 rounded-2xl"><div class="w-2 h-2 bg-green-500 rounded-full"></div><span class="text-[10px] font-black uppercase tracking-tighter">Lunas</span></div></td>
+                            <td class="px-10 py-6 text-right"><button class="w-10 h-10 bg-white border border-pinkUtama/20 text-gray-400 rounded-xl hover:bg-aksen hover:text-white transition-all"><i class='bx bx-download text-xl'></i></button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="p-8 bg-white/20 text-center border-t border-pinkUtama/5">
+                <button class="text-[10px] font-black text-gray-400 uppercase tracking-[0.4em] hover:text-aksen transition-all">Lihat Transaksi Tahun Lalu</button>
+            </div>
+        </div>
+
+        <!-- Footer Info -->
+        <footer class="flex flex-col md:flex-row justify-between items-center gap-6 pt-10 border-t border-pinkUtama/10 animate-fade-in-up" style="animation-delay: 0.4s;">
+            <div class="flex items-center gap-4">
+                <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm">
+                    <i class='bx bxs-shield-check text-aksen text-xl'></i>
+                </div>
+                <p class="text-[10px] font-black text-gray-400 uppercase tracking-widest">Sistem Pembayaran Terenkripsi & Aman</p>
+            </div>
+            <p class="text-[10px] font-black text-gray-300 uppercase tracking-[0.4em]">&copy; 2026 Kost Sakura Digital</p>
+        </footer>
+    </div>
+
+    </div>
+
+    <!-- Modal Unduh PDF -->
+    <div id="modalUnduh" class="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-black/20 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300">
+        <div class="bg-white rounded-[2.5rem] p-10 max-w-sm w-full shadow-2xl text-center transform scale-95 transition-transform duration-300" id="modalUnduhContent">
+            <div class="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-4xl mx-auto mb-6">
+                <i class='bx bxs-file-pdf'></i>
+            </div>
+            <h3 class="text-2xl font-black text-gray-800 mb-2 tracking-tighter">Berhasil!</h3>
+            <p class="text-sm text-gray-500 font-medium mb-8 leading-relaxed">Riwayat tagihan telah terunduh ke perangkat Anda.</p>
+            <button onclick="tutupPopUpUnduh()" class="w-full bg-aksen text-white py-4 rounded-2xl font-black text-[10px] uppercase tracking-widest shadow-lg shadow-aksen/20 hover:scale-[1.02] active:scale-95 transition-all">OK, MENGERTI</button>
+        </div>
+    </div>
+
+</body>
+</html>

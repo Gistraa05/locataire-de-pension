@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Kost Digital</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { 
+            theme: { 
+                extend: { 
+                    colors: { 
+                        pearl: '#FDFCFD', /* Putih lembut agar tidak silau */
+                        softPink: '#FCE4EC',
+                        pinkUtama: '#F8BBD0', 
+                        aksen: '#E91E63',
+                        abuTua: '#4A4A4A'
+                    }
+                } 
+            } 
+        }
+    </script>
+    <style>
+        /* Elemen Abstrak di Latar Belakang */
+        .abstract-blob {
+            position: absolute;
+            filter: blur(80px);
+            z-index: 0;
+            opacity: 0.4;
+            border-radius: 50%;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(248, 187, 208, 0.3);
+        }
+
+        .sidebar-gradient {
+            background: linear-gradient(180deg, #FFFFFF 0%, #FDF2F5 100%);
+        }
+
+        /* Animasi halus untuk elemen abstrak */
+        @keyframes float-slow {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(20px, -20px) scale(1.1); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+        .animate-abstract { animation: float-slow 15s ease-in-out infinite; }
+    </style>
+</head>
+<body class="bg-pearl text-abuTua flex h-screen overflow-hidden font-sans relative">
+
+    <div class="abstract-blob animate-abstract bg-pinkUtama w-[500px] h-[500px] -top-20 -left-20"></div>
+    <div class="abstract-blob animate-abstract bg-softPink w-[400px] h-[400px] bottom-0 right-0" style="animation-delay: 2s;"></div>
+
+    <aside class="w-72 sidebar-gradient h-full border-r border-pinkUtama/30 flex flex-col justify-between relative z-10 hidden md:flex">
+        <div>
+            <div class="h-24 flex items-center px-10">
+                <h1 class="text-2xl font-black text-gray-800 flex items-center gap-3 tracking-tighter">
+                    <div class="p-2 bg-aksen rounded-xl shadow-lg shadow-aksen/20">
+                        <i class='bx bxs-city text-white'></i>
+                    </div>
+                    <span>Admin<span class="text-aksen">Kost.</span></span>
+                </h1>
+            </div>
+            
+            <nav class="p-6 space-y-2">
+                <a href="#" id="nav-beranda" class="flex items-center gap-4 px-5 py-4 bg-white text-aksen rounded-2xl font-bold shadow-sm border border-pinkUtama/20 transition-all">
+                    <i class='bx bx-grid-alt text-xl'></i> Beranda
+                </a>
+                <a href="#" id="nav-penyewa" class="flex items-center gap-4 px-5 py-4 text-gray-500 hover:text-aksen hover:bg-pinkUtama/10 rounded-2xl transition-all">
+                    <i class='bx bx-user-circle text-xl'></i> Data Penyewa
+                </a>
+                <a href="#" id="nav-tagihan" class="flex items-center gap-4 px-5 py-4 text-gray-500 hover:text-aksen hover:bg-pinkUtama/10 rounded-2xl transition-all">
+                    <i class='bx bx-wallet text-xl'></i> Tagihan
+                </a>
+            </nav>
+        </div>
+
+        <div class="p-6">
+            <a href="index.html" class="flex items-center justify-center gap-2 px-4 py-3 bg-white text-red-500 border border-red-100 hover:bg-red-500 hover:text-white rounded-xl transition-all font-bold text-sm shadow-sm">
+                <i class='bx bx-log-out'></i> Keluar
+            </a>
+        </div>
+    </aside>
+
+    <main class="flex-1 h-full overflow-y-auto relative z-10">
+        <header class="h-24 flex items-center justify-between px-10 sticky top-0 z-20 backdrop-blur-md bg-pearl/60 border-b border-pinkUtama/10">
+            <div>
+                <h2 class="text-2xl font-bold text-gray-800">Ringkasan Bulan Ini</h2>
+                <p class="text-xs text-gray-400 font-medium uppercase tracking-wider">Dashboard Pengelola</p>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="text-right hidden sm:block">
+                    <p class="text-sm font-bold text-gray-700">Gistra Risky</p>
+                    <p class="text-[10px] text-aksen font-bold">ADMIN UTAMA</p>
+                </div>
+                <div class="w-12 h-12 bg-pinkUtama rounded-2xl flex items-center justify-center text-white font-bold shadow-inner">G</div>
+            </div>
+        </header>
+
+        <div id="main-content">
+            <!-- Content will be loaded here -->
+            <div class="p-10 space-y-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="glass-card p-8 rounded-[2.5rem] shadow-xl shadow-pinkUtama/10 relative overflow-hidden group">
+                        <div class="absolute -right-6 -bottom-6 w-32 h-32 bg-aksen/5 rounded-full group-hover:scale-150 transition-transform duration-700"></div>
+                        
+                        <div class="relative z-10 flex justify-between items-center">
+                            <div>
+                                <p class="text-gray-500 text-sm font-semibold mb-1">Penyewa Aktif</p>
+                                <h3 class="text-5xl font-black text-gray-800 tracking-tight">24</h3>
+                                <div class="mt-4 flex items-center gap-2">
+                                    <span class="px-2 py-1 bg-green-100 text-green-600 text-[10px] font-bold rounded-lg">+2 Baru</span>
+                                </div>
+                            </div>
+                            <div class="w-16 h-16 bg-gradient-to-tr from-aksen to-pink-400 text-white rounded-3xl flex items-center justify-center text-3xl shadow-lg">
+                                <i class='bx bx-group'></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-8 rounded-[2.5rem] shadow-xl shadow-pinkUtama/10 relative overflow-hidden group border-l-4 border-l-aksen">
+                        <div class="relative z-10 flex justify-between items-center">
+                            <div>
+                                <p class="text-gray-500 text-sm font-semibold mb-1">Tagihan Pending</p>
+                                <h3 class="text-5xl font-black text-gray-800 tracking-tight">05</h3>
+                                <div class="mt-4 flex items-center gap-2">
+                                    <span class="px-2 py-1 bg-red-100 text-red-600 text-[10px] font-bold rounded-lg">Perlu Tindakan</span>
+                                </div>
+                            </div>
+                            <div class="w-16 h-16 bg-white border-2 border-pinkUtama text-aksen rounded-3xl flex items-center justify-center text-3xl shadow-sm">
+                                <i class='bx bx-time-five'></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white/50 backdrop-blur-md rounded-[2.5rem] border border-pinkUtama/20 shadow-sm overflow-hidden">
+                    <div class="p-8 border-b border-pinkUtama/10 flex items-center justify-between">
+                        <h3 class="text-lg font-bold text-gray-800 flex items-center gap-2">
+                            <i class='bx bx-transfer-alt text-aksen'></i> Transaksi Terbaru
+                        </h3>
+                        <button class="text-xs font-bold text-aksen bg-softPink px-4 py-2 rounded-xl hover:bg-aksen hover:text-white transition-all">Ekspor Data</button>
+                    </div>
+                    
+                    <div class="p-6 space-y-4">
+                        <div class="flex items-center justify-between p-5 hover:bg-white rounded-[2rem] transition-all border border-transparent hover:border-pinkUtama/20 hover:shadow-md">
+                            <div class="flex items-center gap-5">
+                                <div class="w-14 h-14 bg-softPink rounded-2xl flex items-center justify-center text-aksen text-2xl font-bold">G</div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Gistra Risky F</h4>
+                                    <p class="text-xs text-gray-400">Kamar B2 • <span class="text-aksen">12 Apr 2026</span></p>
+                                </div>
+                            </div>
+                            <div class="text-right flex items-center gap-6">
+                                <div class="hidden sm:block">
+                                    <p class="text-sm font-bold text-gray-800">Rp 1.200.000</p>
+                                    <p class="text-[10px] text-red-500 font-bold uppercase">Menunggu</p>
+                                </div>
+                                <button onclick="tampilPopUpIngatkan(this)" class="w-10 h-10 flex items-center justify-center bg-aksen text-white rounded-xl shadow-md shadow-aksen/20 hover:scale-110 transition-transform">
+                                    <i class='bx bx-bell'></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between p-5 hover:bg-white rounded-[2rem] transition-all border border-transparent hover:border-pinkUtama/20 hover:shadow-md">
+                            <div class="flex items-center gap-5">
+                                <div class="w-14 h-14 bg-gray-100 rounded-2xl flex items-center justify-center text-gray-400 text-2xl font-bold">B</div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Budi Santoso</h4>
+                                    <p class="text-xs text-gray-400">Kamar A1 • <span class="text-green-600">10 Apr 2026</span></p>
+                                </div>
+                            </div>
+                            <div class="text-right flex items-center gap-6">
+                                <div class="hidden sm:block">
+                                    <p class="text-sm font-bold text-gray-800">Rp 1.500.000</p>
+                                    <p class="text-[10px] text-green-600 font-bold uppercase">Lunas</p>
+                                </div>
+                                <button class="w-10 h-10 flex items-center justify-center bg-gray-100 text-gray-400 rounded-xl hover:bg-green-500 hover:text-white transition-all">
+                                    <i class='bx bx-check-double'></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </main>
+
+    <!-- Modal Tambah Penyewa -->
+    <div id="modalPenyewa" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4">
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-gray-900/40 backdrop-blur-sm" onclick="closeModal()"></div>
+        
+        <!-- Modal Card -->
+        <div class="glass-card bg-white w-full max-w-lg rounded-[2.5rem] shadow-2xl relative z-10 overflow-hidden animate-in fade-in zoom-in duration-300">
+            <div class="p-10">
+                <div class="flex justify-between items-center mb-8">
+                    <div>
+                        <h3 class="text-2xl font-black text-gray-800 tracking-tight">Tambah <span class="text-aksen">Penyewa</span></h3>
+                        <p class="text-xs text-gray-400 font-bold uppercase tracking-wider">Input Data Penghuni Baru</p>
+                    </div>
+                    <button onclick="closeModal()" class="w-10 h-10 flex items-center justify-center bg-gray-100 text-gray-400 rounded-xl hover:bg-red-500 hover:text-white transition-all">
+                        <i class='bx bx-x text-2xl'></i>
+                    </button>
+                </div>
+
+                <form onsubmit="simpanPenyewa(event)" class="space-y-6">
+                    <div class="space-y-2">
+                        <label class="text-xs font-black uppercase tracking-[0.2em] text-gray-400 ml-1">Nama Lengkap</label>
+                        <div class="group relative">
+                            <i class='bx bx-user absolute left-5 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-aksen transition text-xl'></i>
+                            <input type="text" id="namaPenyewa" required 
+                                class="w-full pl-14 pr-6 py-4 bg-gray-50 border-2 border-transparent rounded-[1.5rem] focus:border-pinkUtama focus:bg-white outline-none transition-all shadow-inner" 
+                                placeholder="Masukkan nama penyewa...">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="text-xs font-black uppercase tracking-[0.2em] text-gray-400 ml-1">Nomor Telp</label>
+                            <div class="group relative">
+                                <i class='bx bx-phone absolute left-5 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-aksen transition text-xl'></i>
+                                <input type="tel" id="telpPenyewa" required 
+                                    class="w-full pl-14 pr-6 py-4 bg-gray-50 border-2 border-transparent rounded-[1.5rem] focus:border-pinkUtama focus:bg-white outline-none transition-all shadow-inner" 
+                                    placeholder="0812...">
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-xs font-black uppercase tracking-[0.2em] text-gray-400 ml-1">Nomor Kamar</label>
+                            <div class="group relative">
+                                <i class='bx bx-door-open absolute left-5 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-aksen transition text-xl'></i>
+                                <input type="text" id="kamarPenyewa" required 
+                                    class="w-full pl-14 pr-6 py-4 bg-gray-50 border-2 border-transparent rounded-[1.5rem] focus:border-pinkUtama focus:bg-white outline-none transition-all shadow-inner" 
+                                    placeholder="Contoh: B2">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 flex gap-4">
+                        <button type="button" onclick="closeModal()" class="flex-1 py-4 rounded-2xl font-bold text-gray-400 hover:bg-gray-100 transition-all">Batal</button>
+                        <button type="submit" class="flex-[2] bg-aksen text-white py-4 rounded-2xl font-bold shadow-xl shadow-aksen/20 hover:scale-[1.02] active:scale-95 transition-all">Simpan Data</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Ingatkan (Pop-up) -->
+    <div id="modalIngatkan" class="fixed inset-0 z-[110] hidden flex items-center justify-center p-4">
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-gray-900/20 backdrop-blur-sm" onclick="tutupPopUpIngatkan()"></div>
+        
+        <!-- Pop-up Card -->
+        <div class="bg-white p-8 rounded-[2rem] shadow-2xl relative z-10 w-full max-w-xs text-center animate-in fade-in zoom-in duration-300">
+            <div class="w-20 h-20 bg-softPink text-aksen rounded-full flex items-center justify-center text-4xl mx-auto mb-6">
+                <i class='bx bx-bell-plus'></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 mb-2">Berhasil!</h3>
+            <p class="text-gray-500 text-sm mb-8">Telah di ingatkan kepada penyewa.</p>
+            <button onclick="konfirmasiIngatkan()" class="w-full bg-aksen text-white py-4 rounded-2xl font-bold shadow-lg shadow-aksen/20 hover:scale-[1.02] active:scale-95 transition-all">
+                OKE
+            </button>
+        </div>
+    </div>
+
+    <!-- Modal Edit Penyewa -->
+    <div id="modalEditPenyewa" class="fixed inset-0 z-[120] hidden flex items-center justify-center p-4">
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-gray-900/40 backdrop-blur-sm" onclick="closeEditModal()"></div>
+        
+        <!-- Modal Card -->
+        <div class="glass-card bg-white w-full max-w-lg rounded-[2.5rem] shadow-2xl relative z-10 overflow-hidden animate-in fade-in zoom-in duration-300">
+            <div class="p-10">
+                <div class="flex justify-between items-center mb-8">
+                    <div>
+                        <h3 class="text-2xl font-black text-gray-800 tracking-tight">Edit <span class="text-aksen">Penyewa</span></h3>
+                        <p class="text-xs text-gray-400 font-bold uppercase tracking-wider">Perbarui Data Penghuni</p>
+                    </div>
+                    <button onclick="closeEditModal()" class="w-10 h-10 flex items-center justify-center bg-gray-100 text-gray-400 rounded-xl hover:bg-red-500 hover:text-white transition-all">
+                        <i class='bx bx-x text-2xl'></i>
+                    </button>
+                </div>
+
+                <form onsubmit="simpanEditPenyewa(event)" class="space-y-6">
+                    <div class="space-y-2">
+                        <label class="text-xs font-black uppercase tracking-[0.2em] text-gray-400 ml-1">Ganti Nama</label>
+                        <div class="group relative">
+                            <i class='bx bx-user absolute left-5 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-aksen transition text-xl'></i>
+                            <input type="text" id="editNamaPenyewa" required 
+                                class="w-full pl-14 pr-6 py-4 bg-gray-50 border-2 border-transparent rounded-[1.5rem] focus:border-pinkUtama focus:bg-white outline-none transition-all shadow-inner" 
+                                placeholder="Masukkan nama baru...">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="text-xs font-black uppercase tracking-[0.2em] text-gray-400 ml-1">Ganti No Telp</label>
+                            <div class="group relative">
+                                <i class='bx bx-phone absolute left-5 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-aksen transition text-xl'></i>
+                                <input type="tel" id="editTelpPenyewa" required 
+                                    class="w-full pl-14 pr-6 py-4 bg-gray-50 border-2 border-transparent rounded-[1.5rem] focus:border-pinkUtama focus:bg-white outline-none transition-all shadow-inner" 
+                                    placeholder="Nomor telp baru...">
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-xs font-black uppercase tracking-[0.2em] text-gray-400 ml-1">Ganti Kamar</label>
+                            <div class="group relative">
+                                <i class='bx bx-door-open absolute left-5 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-aksen transition text-xl'></i>
+                                <input type="text" id="editKamarPenyewa" required 
+                                    class="w-full pl-14 pr-6 py-4 bg-gray-50 border-2 border-transparent rounded-[1.5rem] focus:border-pinkUtama focus:bg-white outline-none transition-all shadow-inner" 
+                                    placeholder="Nomor kamar baru...">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 flex gap-4">
+                        <button type="button" onclick="closeEditModal()" class="flex-1 py-4 rounded-2xl font-bold text-gray-400 hover:bg-gray-100 transition-all">Batal</button>
+                        <button type="submit" class="flex-[2] bg-aksen text-white py-4 rounded-2xl font-bold shadow-xl shadow-aksen/20 hover:scale-[1.02] active:scale-95 transition-all">Simpan Perubahan</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Hapus Penyewa -->
+    <div id="modalHapusPenyewa" class="fixed inset-0 z-[130] hidden flex items-center justify-center p-4">
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-gray-900/40 backdrop-blur-sm" onclick="closeDeleteModal()"></div>
+        
+        <!-- Pop-up Card -->
+        <div class="bg-white p-10 rounded-[2.5rem] shadow-2xl relative z-10 w-full max-w-sm text-center animate-in fade-in zoom-in duration-300">
+            <div class="w-20 h-20 bg-red-50 text-red-500 rounded-full flex items-center justify-center text-4xl mx-auto mb-6">
+                <i class='bx bx-trash'></i>
+            </div>
+            <h3 class="text-2xl font-black text-gray-800 mb-2">Hapus Penyewa?</h3>
+            <p class="text-gray-500 text-sm mb-8">Apakah Anda yakin ingin menghapus data penyewa ini? Tindakan ini tidak dapat dibatalkan.</p>
+            <div class="flex gap-4">
+                <button onclick="closeDeleteModal()" class="flex-1 py-4 rounded-2xl font-bold text-gray-400 hover:bg-gray-100 transition-all">
+                    TIDAK
+                </button>
+                <button onclick="konfirmasiHapusPenyewa()" class="flex-1 bg-red-500 text-white py-4 rounded-2xl font-bold shadow-lg shadow-red-500/20 hover:bg-red-600 hover:scale-[1.02] active:scale-95 transition-all">
+                    IYA
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Cetak Tagihan -->
+    <div id="modalCetakTagihan" class="fixed inset-0 z-[140] hidden flex items-center justify-center p-4">
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-gray-900/40 backdrop-blur-sm" onclick="closeCetakModal()"></div>
+        
+        <!-- Pop-up Card -->
+        <div class="bg-white p-10 rounded-[2.5rem] shadow-2xl relative z-10 w-full max-w-sm text-center animate-in fade-in zoom-in duration-300">
+            <div class="w-20 h-20 bg-blue-50 text-blue-500 rounded-full flex items-center justify-center text-4xl mx-auto mb-6">
+                <i class='bx bx-printer'></i>
+            </div>
+            <h3 class="text-2xl font-black text-gray-800 mb-2">Cetak Tagihan?</h3>
+            <p class="text-gray-500 text-sm mb-8">Apakah tagihan ini ingin di cetak?</p>
+            <div class="flex gap-4">
+                <button onclick="closeCetakModal()" class="flex-1 py-4 rounded-2xl font-bold text-gray-400 hover:bg-gray-100 transition-all">
+                    TIDAK
+                </button>
+                <button onclick="konfirmasiCetak()" class="flex-1 bg-blue-500 text-white py-4 rounded-2xl font-bold shadow-lg shadow-blue-500/20 hover:bg-blue-600 hover:scale-[1.02] active:scale-95 transition-all">
+                    IYA
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+</html>

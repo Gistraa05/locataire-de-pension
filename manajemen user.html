@@ -1,0 +1,56 @@
+<!-- Content Section: Data Penyewa -->
+<div class="p-10 space-y-8">
+    <header class="flex justify-between items-center">
+        <div>
+            <h2 class="text-3xl font-black text-gray-800 tracking-tight">Data <span class="text-aksen">Penyewa</span></h2>
+            <p class="text-xs text-gray-400 font-bold uppercase tracking-[0.2em]">Total 24 Penghuni Aktif</p>
+        </div>
+        <button onclick="openModal()" class="bg-aksen text-white px-6 py-3 rounded-2xl shadow-lg shadow-aksen/20 flex items-center gap-2 font-bold text-sm hover:scale-105 transition-all">
+            <i class='bx bx-plus-circle text-lg'></i> Tambah Penyewa
+        </button>
+    </header>
+
+    <div class="bg-white/50 backdrop-blur-md rounded-[2.5rem] border border-pinkUtama/20 shadow-sm overflow-hidden">
+        <div class="overflow-x-auto">
+            <table class="w-full text-left">
+                <thead>
+                    <tr class="border-b border-pinkUtama/10 text-[10px] font-black uppercase tracking-widest text-gray-400">
+                        <th class="px-8 py-6">Penyewa</th>
+                        <th class="px-6 py-6">Kamar</th>
+                        <th class="px-6 py-6">Kontak</th>
+                        <th class="px-6 py-6 text-center">Status Kontrak</th>
+                        <th class="px-8 py-6 text-right">Aksi</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-pinkUtama/5">
+                    <tr class="group hover:bg-white transition-all">
+                        <td class="px-8 py-5">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 bg-softPink text-aksen rounded-xl flex items-center justify-center font-bold">G</div>
+                                <div>
+                                    <p class="font-bold text-gray-800 text-sm">Gistra Risky F</p>
+                                    <p class="text-[10px] text-gray-400 font-medium">Masuk: 12 Jan 2026</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="px-6 py-5">
+                            <span class="px-3 py-1 bg-white border border-pinkUtama/30 rounded-lg text-xs font-bold text-aksen">B2</span>
+                        </td>
+                        <td class="px-6 py-5">
+                            <p class="text-xs font-bold text-gray-600">0812-7788-9900</p>
+                        </td>
+                        <td class="px-6 py-5 text-center">
+                            <span class="px-3 py-1 bg-green-100 text-green-600 text-[10px] font-black rounded-full uppercase">Aktif</span>
+                        </td>
+                        <td class="px-8 py-5 text-right">
+                            <div class="flex justify-end gap-2">
+                                <button onclick="openEditModal('Gistra Risky F', 'B2', '0812-7788-9900')" class="p-2 text-gray-300 hover:text-aksen transition-all"><i class='bx bx-edit-alt text-xl'></i></button>
+                                <button onclick="openDeleteModal()" class="p-2 text-gray-300 hover:text-red-500 transition-all"><i class='bx bx-trash text-xl'></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

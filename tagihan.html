@@ -1,0 +1,55 @@
+<!-- Content Section: Tagihan -->
+<div class="p-10 space-y-8">
+    <header class="flex justify-between items-end">
+        <div>
+            <h2 class="text-3xl font-black text-gray-800 tracking-tight">Manajemen <span class="text-aksen">Tagihan</span></h2>
+            <div class="flex gap-4 mt-2">
+                <div class="flex items-center gap-1 text-[10px] font-bold text-green-500 uppercase"><i class='bx bxs-circle'></i> 19 Lunas</div>
+                <div class="flex items-center gap-1 text-[10px] font-bold text-red-500 uppercase"><i class='bx bxs-circle'></i> 5 Pending</div>
+            </div>
+        </div>
+        <div class="flex gap-2 bg-white p-1.5 rounded-2xl shadow-sm border border-pinkUtama/10">
+            <button class="px-4 py-2 bg-aksen text-white rounded-xl text-xs font-bold shadow-md shadow-aksen/20 transition-all">April</button>
+            <button class="px-4 py-2 text-gray-400 text-xs font-bold hover:bg-softPink rounded-xl transition-all">Mei</button>
+        </div>
+    </header>
+
+    <div class="grid grid-cols-1 gap-4">
+        <!-- Tagihan Row 1 (Pending) -->
+        <div class="glass-card p-6 rounded-[2rem] border-l-4 border-l-aksen flex flex-col md:flex-row md:items-center justify-between gap-4 hover:shadow-lg transition-all group">
+            <div class="flex items-center gap-5">
+                <div class="w-14 h-14 bg-aksen text-white rounded-2xl flex items-center justify-center font-black shadow-lg shadow-aksen/20 text-xl">B2</div>
+                <div>
+                    <h4 class="font-bold text-gray-800">Gistra Risky F</h4>
+                    <p class="text-xs text-gray-400">Total: <span class="text-aksen font-bold">Rp 1.200.000</span></p>
+                </div>
+            </div>
+            
+            <div class="flex items-center justify-between md:justify-end gap-6 border-t md:border-t-0 pt-4 md:pt-0 border-pinkUtama/10">
+                <div class="text-right">
+                    <p class="text-[9px] font-black text-gray-300 uppercase tracking-widest">Metode Transfer</p>
+                    <p class="text-xs font-bold text-gray-600">Bank Mandiri</p>
+                </div>
+                <button onclick="verifikasiTagihan(event)" class="bg-green-500 text-white px-6 py-3 rounded-xl text-xs font-black shadow-lg shadow-green-500/20 hover:bg-green-600 transition-all flex items-center gap-2">
+                    <i class='bx bx-check-shield text-lg'></i> VERIFIKASI
+                </button>
+                <button class="w-10 h-10 flex items-center justify-center text-gray-300 hover:text-aksen transition-all"><i class='bx bx-dots-vertical-rounded text-xl'></i></button>
+            </div>
+        </div>
+
+        <!-- Tagihan Row 2 (Lunas) -->
+        <div class="bg-white/30 backdrop-blur-sm p-6 rounded-[2rem] border border-pinkUtama/10 flex flex-col md:flex-row md:items-center justify-between gap-4 opacity-70">
+            <div class="flex items-center gap-5">
+                <div class="w-14 h-14 bg-gray-100 text-gray-400 rounded-2xl flex items-center justify-center font-black italic text-xs">DONE</div>
+                <div>
+                    <h4 class="font-bold text-gray-800">Budi Santoso</h4>
+                    <p class="text-xs text-gray-400">Total: Rp 1.500.000</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <span class="px-4 py-2 bg-green-50 text-green-600 text-[10px] font-black rounded-lg uppercase">Terverifikasi</span>
+                <button onclick="openCetakModal()" class="p-2 text-gray-300 hover:text-gray-500"><i class='bx bx-printer text-xl'></i></button>
+            </div>
+        </div>
+    </div>
+</div>

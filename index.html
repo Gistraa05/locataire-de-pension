@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masuk - Kost Digital Floral</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { 
+            theme: { 
+                extend: { 
+                    colors: { 
+                        pinkUtama: '#F8BBD0', 
+                        putih: '#FFFFFF', 
+                        abu: '#F5F5F5', 
+                        aksen: '#E91E63' 
+                    }
+                } 
+            } 
+        }
+    </script>
+    <style>
+        /* Elemen dekoratif bunga */
+        .floral-element {
+            position: absolute;
+            pointer-events: none;
+            user-select: none;
+            z-index: 1;
+        }
+        
+        /* Animasi melayang yang berbeda-beda agar terlihat organik */
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(10deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+        
+        .animate-floral {
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .input-focus-effect:focus-within {
+            box-shadow: 0 10px 20px -5px rgba(233, 30, 99, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-abu min-h-screen flex items-center justify-center p-4">
+
+    <div class="flex flex-col md:flex-row w-full max-w-5xl bg-putih rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.1)] overflow-hidden border border-pinkUtama/20 relative">
+        
+        <div class="w-full md:w-5/12 bg-gradient-to-br from-pinkUtama via-[#fce4ec] to-aksen p-10 md:p-12 text-gray-800 flex flex-col justify-between relative overflow-hidden">
+            <div class="absolute -top-10 -left-10 w-40 h-40 bg-putih/20 rounded-full blur-3xl"></div>
+            <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-aksen/10 rounded-full blur-3xl"></div>
+
+            <div class="relative z-10">
+                <div class="flex items-center gap-2 mb-8">
+                    <div class="bg-putih p-2 rounded-xl shadow-sm">
+                        <i class='bx bxs-home-heart text-3xl text-aksen'></i>
+                    </div>
+                    <span class="text-xl font-bold tracking-tight text-gray-900">Kost Sakura.</span>
+                </div>
+                
+                <h1 class="text-3xl md:text-4xl font-extrabold leading-tight mb-6">Tempat Tinggal Nyaman, <br><span class="text-aksen font-serif italic">Serasa dikamar rumah sendiri.</span></h1>
+                
+                <div class="space-y-5">
+                    <div class="flex items-center gap-4 group">
+                        <div class="w-10 h-10 bg-putih/60 rounded-full flex items-center justify-center text-aksen group-hover:bg-aksen group-hover:text-putih transition">
+                            <i class='bx bx-check-shield text-xl'></i>
+                        </div>
+                        <p class="text-sm font-medium">Sistem Pembayaran Aman</p>
+                    </div>
+                    <div class="flex items-center gap-4 group">
+                        <div class="w-10 h-10 bg-putih/60 rounded-full flex items-center justify-center text-aksen group-hover:bg-aksen group-hover:text-putih transition">
+                            <i class='bx bx-bell-plus text-xl'></i>
+                        </div>
+                        <p class="text-sm font-medium">Notifikasi Tagihan Real-time</p>
+                    </div>
+                    <div class="flex items-start gap-4 group">
+                        <div class="w-10 h-10 bg-putih/60 rounded-full flex-shrink-0 flex items-center justify-center text-aksen group-hover:bg-aksen group-hover:text-putih transition">
+                            <i class='bx bx-time-five text-xl'></i>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium">Kost Tutup pagar jam 00:00</p>
+                            <p class="text-[10px] text-gray-500 italic leading-tight">Beda dengan kost yang lain-lain</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="text-xs font-light text-gray-600 relative z-10 mt-8">
+                &copy; 2026 Kost Digital System.
+            </p>
+        </div>
+
+        <div class="w-full md:w-7/12 p-10 md:p-16 flex flex-col justify-center bg-white relative overflow-hidden">
+            
+            <div class="floral-element animate-floral top-4 left-10 text-3xl opacity-10">🌸</div>
+            <div class="floral-element animate-floral top-10 right-10 text-5xl opacity-20">🪷</div>
+            <div class="floral-element animate-floral top-32 right-32 text-2xl opacity-10" style="animation-delay: 1s;">🌸</div>
+
+            <div class="floral-element animate-floral top-1/2 -left-4 text-6xl opacity-[0.07]">🪷</div>
+            <div class="floral-element animate-floral top-1/3 right-4 text-4xl opacity-15" style="animation-delay: 2s;">🌸</div>
+            <div class="floral-element animate-floral top-2/3 left-20 text-2xl opacity-10" style="animation-delay: 1.5s;">🌸</div>
+
+            <div class="floral-element animate-floral bottom-20 right-10 text-5xl opacity-20">🪷</div>
+            <div class="floral-element animate-floral bottom-10 left-32 text-3xl opacity-15" style="animation-delay: 0.5s;">🌸</div>
+            <div class="floral-element animate-floral bottom-4 left-6 text-4xl opacity-10">🪷</div>
+            <div class="floral-element animate-floral bottom-1/4 right-1/4 text-xl opacity-[0.05]">🌸</div>
+
+            <div class="max-w-sm mx-auto w-full relative z-10">
+                <div class="mb-10">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-2">Masuk Akun</h2>
+                    <p class="text-gray-400 text-sm">Akses dasbor pengelolaan kost Anda.</p>
+                </div>
+
+                <form onsubmit="prosesLogin(event)" class="space-y-6">
+                    <div class="space-y-2">
+                        <label class="text-xs font-bold uppercase tracking-widest text-gray-400 ml-1">Email</label>
+                        <div class="group relative input-focus-effect">
+                            <i class='bx bx-user absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-aksen transition text-xl'></i>
+                            <input type="email" required 
+                                class="w-full pl-12 pr-4 py-3 bg-abu/50 border-2 border-transparent rounded-2xl focus:border-pinkUtama focus:bg-putih outline-none transition-all duration-300 shadow-inner" 
+                                placeholder="nama@email.com">
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-xs font-bold uppercase tracking-widest text-gray-400 ml-1">Password</label>
+                        <div class="group relative input-focus-effect">
+                            <i class='bx bx-lock-alt absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-aksen transition text-xl'></i>
+                            <input type="password" required 
+                                class="w-full pl-12 pr-4 py-3 bg-abu/50 border-2 border-transparent rounded-2xl focus:border-pinkUtama focus:bg-putih outline-none transition-all duration-300 shadow-inner" 
+                                placeholder="••••••••">
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-xs font-bold uppercase tracking-widest text-gray-400 ml-1">Masuk Sebagai</label>
+                        <div class="relative">
+                            <i class='bx bx-category absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-xl pointer-events-none'></i>
+                            <select id="pilihanRole" 
+                                class="w-full pl-12 pr-4 py-3 bg-abu/50 border-2 border-transparent rounded-2xl focus:border-pinkUtama focus:bg-putih outline-none transition-all duration-300 appearance-none text-gray-700 cursor-pointer shadow-inner">
+                                <option value="tenant">Penyewa (Tenant)</option>
+                                <option value="admin">Pengelola (Admin)</option>
+                            </select>
+                            <i class='bx bx-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none'></i>
+                        </div>
+                    </div>
+
+                    <button type="submit" 
+                        class="w-full bg-aksen text-putih py-4 rounded-2xl font-bold hover:bg-pink-700 transition-all duration-300 shadow-xl shadow-pink-200 hover:shadow-pink-400 transform hover:-translate-y-1 active:scale-95">
+                        Masuk Sekarang
+                    </button>
+                </form>
+
+                <div class="mt-10 text-center">
+                    <p class="text-sm text-gray-400">Belum punya akun? <a href="register.html" class="text-aksen font-bold hover:underline">Hubungi Admin</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

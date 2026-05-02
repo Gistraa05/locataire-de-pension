@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #F5F5F5; /* Warna abu sesuai panduan */
+}
+
+/* Gradient khusus untuk halaman login */
+.bg-login-gradient {
+    background: linear-gradient(135deg, #F8BBD0 0%, #E91E63 100%);
+}
+
+/* Kustomisasi scrollbar yang lebih halus */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-thumb { background: #E91E63; border-radius: 10px; }
+::-webkit-scrollbar-track { background: transparent; }

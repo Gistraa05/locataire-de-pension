@@ -264,12 +264,45 @@ function konfirmasiCetak() {
 // Tenant Payment Logic
 function konfirmasiPembayaran() {
     const statusSpan = document.getElementById('statusPembayaran');
+    const labelTagihan = document.getElementById('labelTagihan');
+    const nilaiTagihan = document.getElementById('nilaiTagihan');
+    const sectionKonfirmasi = document.getElementById('sectionKonfirmasi');
+    
     if (statusSpan) {
-        statusSpan.innerText = "Sudah Bayar";
+        // Update Status Label
+        statusSpan.innerText = "SUDAH TERBAYAR";
         statusSpan.classList.remove('bg-aksen');
         statusSpan.classList.add('bg-green-500');
         
-        alert("Terima kasih! Bukti pembayaran Anda telah dikirim dan status diperbarui menjadi 'Sudah Bayar'.");
+        // Update Bill Label & Amount
+        if (labelTagihan) labelTagihan.innerText = "Status Tagihan";
+        if (nilaiTagihan) {
+            nilaiTagihan.innerHTML = "LUNAS <i class='bx bxs-check-circle text-green-500 text-4xl align-middle ml-2'></i>";
+            nilaiTagihan.classList.add('text-green-600');
+        }
+        
+        // Hide/Remove Confirmation Section with animation
+        if (sectionKonfirmasi) {
+            sectionKonfirmasi.style.opacity = '0';
+            sectionKonfirmasi.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+                sectionKonfirmasi.innerHTML = `
+                    <div class="flex items-center justify-center gap-4 p-8 bg-green-50/50 rounded-[2.5rem]">
+                        <div class="w-12 h-12 bg-green-500 text-white rounded-full flex items-center justify-center text-2xl shadow-lg shadow-green-500/20">
+                            <i class='bx bx-check'></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-black text-gray-800">Pembayaran Berhasil Diverifikasi</h4>
+                            <p class="text-xs text-gray-400 font-medium">Terima kasih, bukti pembayaran Anda telah diterima sistem.</p>
+                        </div>
+                    </div>
+                `;
+                sectionKonfirmasi.style.opacity = '1';
+                sectionKonfirmasi.style.transform = 'translateY(0)';
+            }, 500);
+        }
+        
+        alert("Terima kasih! Pembayaran Anda telah berhasil dikonfirmasi dan status dashboard diperbarui.");
     }
 }
 

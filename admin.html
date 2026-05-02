@@ -143,7 +143,7 @@
                         <h3 class="text-lg font-bold text-gray-800 flex items-center gap-2">
                             <i class='bx bx-transfer-alt text-aksen'></i> Transaksi Terbaru
                         </h3>
-                        <button class="text-xs font-bold text-aksen bg-softPink px-4 py-2 rounded-xl hover:bg-aksen hover:text-white transition-all">Ekspor Data</button>
+                        <button onclick="tampilPopUpUnduh()" class="text-xs font-bold text-aksen bg-softPink px-4 py-2 rounded-xl hover:bg-aksen hover:text-white transition-all">Ekspor Data</button>
                     </div>
                     
                     <div class="p-6 space-y-4">
@@ -370,6 +370,22 @@
                     IYA
                 </button>
             </div>
+        </div>
+    <!-- Modal Unduh Data -->
+    <div id="modalUnduh" class="fixed inset-0 z-[150] hidden flex items-center justify-center p-4 transition-opacity duration-300">
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-gray-900/40 backdrop-blur-sm" onclick="tutupPopUpUnduh()"></div>
+        
+        <!-- Pop-up Card -->
+        <div id="modalUnduhContent" class="bg-white p-10 rounded-[2.5rem] shadow-2xl relative z-10 w-full max-w-sm text-center transform scale-95 transition-transform duration-300">
+            <div class="w-20 h-20 bg-green-50 text-green-500 rounded-full flex items-center justify-center text-4xl mx-auto mb-6">
+                <i class='bx bx-cloud-download'></i>
+            </div>
+            <h3 class="text-2xl font-black text-gray-800 mb-2">Berhasil!</h3>
+            <p class="text-gray-500 text-sm mb-8">Data telah di download ke perangkat anda.</p>
+            <button onclick="tutupPopUpUnduh()" class="w-full bg-green-500 text-white py-4 rounded-2xl font-bold shadow-lg shadow-green-500/20 hover:bg-green-600 hover:scale-[1.02] active:scale-95 transition-all uppercase">
+                OKE
+            </button>
         </div>
     </div>
 
